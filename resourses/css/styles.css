@@ -1,4 +1,4 @@
-* {
+*{
     box-sizing: border-box;
     margin:0px;
     padding:0px;
@@ -19,52 +19,75 @@ html{
     background-attachment: fixed;
 }
 
+
+.site-name{
+    font-size:30px;
+}
+.site-name:link,.site-name-post:link,
+.site-name:visited,.site-name-post:visited
+{
+    color: white;
+    text-shadow: -10px 0px 20px #00cb7d, 0px 10px 20px #00cb7d, 10px 0px 20px #00cb7d, 0px -10px 20px #00cb7d;
+    transition: text-shadow 0.2s;
+}
+
+.site-name:active,.site-name-post:active,
+.site-name:hover,.site-name-post:hover{
+    color: white;
+    text-shadow: -20px 0px 40px #00cb7d, 0px 20px 40px #00cb7d, 20px 0px 40px #00cb7d, 0px -20px 40px #00cb7d;
+    
+}
+
+.menu li{
+    display:inline-block;
+    padding-left: 50px;
+}
+
+.menu ul{
+
+    list-style: none;
+    text-align:center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.menu ul li  :link,
+.menu ul li :visited
+{
+    text-decoration: none;
+    color:white;
+    font-size: 120%;
+    border-bottom: 3px transparent white;
+    transition: border-bottom 0.2s;
+}
+
+
+.menu ul li :active,
+.menu ul li :hover
+{
+    color:white;
+    text-decoration: none;
+    font-size: 120%;
+    border-bottom: 3px solid  #00cb7d;
+}
+/*8*****************/
+
 .header{
     padding:15px;
     text-align: center;
 }
 
-.header-post{
-    padding-left:125px;
-    text-align: ;
-}
+
 
 .post-name{
+    padding:30px;
+    padding-bottom: 5px;
     text-align: center;
-    font-size: 40px;
-    font-weight: 700;
-    color:white;
-    text-shadow: -2px 0px #00cb7d, 0px 2px #00cb7d, 2px 0px #00cb7d, 0px -2px #00cb7d;
+    font-size: 35px;
+    color: white;
+    text-shadow: -2px 0px 0px #00cb7d, 0px 2px 0px #00cb7d, 2px 0px 0px #00cb7d, 0px -2px 0px #00cb7d;
 }
 
-
-
-.menu{
-    text-align:center;
-    padding:15px;
-    color:white;
-}
-
-.menu-post{
-    float:right;
-    padding:15px;
-    color:white;
-}
-
-.menu ul,
-.menu-post{
-    
-    list-style: none;
-    text-align:center;
-}
-
-.menu ul,
-.menu-post ul{
-    
-    display: inline-block;
-    padding-left: 30px;
-    padding-right: 30px;
-}
 
 .summary-box{
     margin-top: 10%;
@@ -90,68 +113,28 @@ html{
      font-weight: 300;
 }
 
-.site-name-post{
-    font-size:20px;
-}
 
-.site-name{
-    font-size:30px;
-}
-.site-name,.site-name-post:link,
-.site-name,.site-name-post:visited
-{
-    color: white;
-    text-shadow: -10px 0px 20px #00cb7d, 0px 10px 20px #00cb7d, 10px 0px 20px #00cb7d, 0px -10px 20px #00cb7d;
-    transition: text-shadow 0.2s;
-}
-
-.site-name,.site-name-post:active,
-.site-name,.site-name-post:hover{
-    color: white;
-    text-shadow: -20px 0px 40px #00cb7d, 0px 20px 40px #00cb7d, 20px 0px 40px #00cb7d, 0px -20px 40px #00cb7d;
-    
-}
-
-.menu ul li a,.menu-post ul li a:link,
-.menu ul li a,.menu-post ul li a:visited
-{
-    color:white;
-    text-decoration: none;
-    font-size: 120%;
-    border-bottom: 3px transparent white;
-    transition: border-bottom 0.2s;
-}
-
-.menu ul li a,.menu-post ul li a:active,
-.menu ul li a,.menu-post ul li a:hover
-{
-    color:white;
-    text-decoration: none;
-    font-size: 120%;
-    border-bottom: 3px solid  #00cb7d;
-}
 
 .summary-about
 {
-    float:left;
+    float:right;
     margin-top: 10%;
     margin-left:5%;
     margin-right:5%;
-    width:75%;
+    width:800px;
     color:white;
     font-weight: 300;
     text-align:center;    
 }
 
 .author-img {
-    margin-top: 10%;
-    margin-left:5%;
-    width:10%;
+    display: block;
+    margin: 50px auto 50px auto;
+    margin-top: 50px;
+    width:150px;
     border-radius:1000px;
-    border-collapse: separate;
     border: #00cb7d solid 5px;
     background-color:#00cb7d; 
-    float:left;
     
 }
 
@@ -159,8 +142,8 @@ html{
     width:800px;
     max-width:1140px;
     margin: 0 auto;
-    padding-top: 50px;
-    font-size:20px
+    font-size:20px;
+    background-color: rgba(0, 0, 0, 0.72);
 }
 
 .img-section{
@@ -173,3 +156,63 @@ html{
     color:white;
 }
 
+.post-list{
+    list-style-position: inside;
+}
+
+.post-paragraph,.list-heading{
+    padding-top:25px;
+    padding-bottom:25px;
+}
+
+.list-heading{
+    font-size: 22px;
+    text-decoration: underline;
+}
+
+.post-images{
+    padding-top: 50px;
+    padding-bottom:50px;
+    
+}
+
+.small-post-images
+{
+    padding-left: 50px;
+    padding-top: 50px;
+    width:200px;
+}
+
+.medium-post-images{
+ width:398px;   
+}
+
+.large-post-images{
+    width:800px;
+}
+
+.text-highlight{
+    text-decoration: underline;
+}
+
+.demo-video{
+    display: block;
+    margin:auto;
+}
+
+.contact-info{
+    
+}
+
+/*
+
+
+
+
+*/
+
+
+.under-post-name {
+    color: white;
+    text-align:center;
+}

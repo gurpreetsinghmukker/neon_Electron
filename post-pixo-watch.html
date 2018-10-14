@@ -2,7 +2,7 @@
 <html lang="en">
     
     <head>
-        
+        <title>PIXO Watch-neonElectron</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
         <link rel="stylesheet" type="text/css" href="vendors/css/Grid.css">
@@ -13,10 +13,10 @@
     </head>
 
     <body>
-                <div class="whole">
-        <div class="header-post">
-             <a class="site-name-post" href="index.html" style="text-decoration: none"><h1>neonElectron</h1></a>
-            <div class="menu-post">
+        <div class="header">
+             <a class="site-name" href="index.html" style="text-decoration: none"><h1>neonElectron</h1></a>
+        </div>
+        <div class="menu">
             <ul>
                 <li><a href=index.html>Home</a></li>
                 <li><a href="post-pixo-watch.html">Posts</a></li>
@@ -24,22 +24,136 @@
                 
             </ul>
         </div>
-        </div>
-        <div class="post-name">
+            
+        <div>
         
             <h2 class="post-name">Pixo Watch</h2>
+            <p class="under-post-name">(work in progress)</p>
                     
         </div>
         
-            <div class="text-section"> 
-                <p class="post-text">A couple of months back, I was looking for a project to take on, preferably something related to wearables. Looking for ideas, I stumbled upon an <a href="https://hackaday.io/project/34779-pixo-pixel" class="post-links links">article</a> by Sean Hodgins on Hackaday. He was using individually addressable RGB LED’s to make a 16*16 screen which actually looked amazing and had a retro look. I loved the look of the pixels so much that  I decided to make a watch with the RGB LED’s  as a screen and hence the project PIXO Watch.</p>
+        <div class="text-section"> 
+                
+            <p class="post-text post-paragraph">A couple of months back, I was looking for a project to take on, preferably something related to wearables. Looking for ideas, I stumbled upon an <a href="https://hackaday.io/project/34779-pixo-pixel" target="_blank" class="post-links links">article</a> by Sean Hodgins on Hackaday. He was using individually addressable RGB LED’s to make a 16*16 screen which actually looked amazing and had a retro look. I loved the look of the pixels so much that I decided to make a watch with the RGB LED’s as a screen and hence the project PIXO watch.</p>
+
+            <h2 class="list-heading post-text">Below is the list of features I wanted inside the watch</h2>
+
+            <ul class="post-text post-list">
+
+            <li>It should have a retro look with a modern design.</li>
+            <li>At first, I thought of designing a case for the watch myself and print it using a 3d printer. But then, the watch would not look like everyday wearable watch. Therefor I decided to buy a cheap <a href="https://www.amazon.ca/dp/B07DN1XHDG/ref=sspa_dk_detail_0?psc=1&pd_rd_i=B07DN1XHDG&pf_rd_m=A3DWYIK6Y9EEQB&pf_rd_p=0c4797d7-01ae-4f2b-9625-15b63bbba1db&pf_rd_r=PMFDV2HGP4T8BV9G4SPA&pd_rd_wg=wf4ts&pf_rd_s=desktop-dp-sims&pf_rd_t=40701&pd_rd_w=em8wI&pf_rd_i=desktop-dp-sims&pd_rd_r=7a95ab7f-cf12-11e8-ba98-5b089291c505" target="_blank" class="post-links links">Chinese Smart Watch</a> and disassemble it and salvage the case and fit my own electronics into it.</li>
+            <li>It should have a good battery life. Preferably a full day with always on display. But that would not be the case as you would see later in the post in the challenges section.</li>
+            <li>Bluetooth Connectivity</li>
+            <li>9 DOF sensor, for tilt based animations and </li>
+            </ul>
+
+            <p class="post-text post-paragraph">Not all features above have been accomplished, but I will keep on working on them as I find time.</p>
+
+            <img class="post-images small-post-images"   src="resourses/img/pcb-front.jpg" alt="pcb-front">
+
+            <img class="post-images small-post-images"   src="resourses/img/pcb-back.jpg" alt="pcb-back">
+
+            <img class="post-images large-post-images"   src="resourses/img/watch-deconstructed.jpg" alt="pcb-front">
+
+
+            <h2 class="list-heading post-text">Below is the list of components I used</h2>
+
+            <ul class="post-text post-list">
+
+            <li>Adafruit 8x8 RGB Matrix <span class="text-highlight">DK P/N:1528-1918-ND</span></li>
+            <li>TDK IMU ACCEL/GYRO/MAG <span class="text-highlight">DK P/N:1428-1019-1-ND</span></li>
+            <li>STM32L452CEU6 MCU <span class="text-highlight">DK P/N:497-17218-ND </span></li>
+            <li>Li-Ion Cell Charger <span class="text-highlight">DK P/N:MCP73831T-2ACI/OTCT-ND</span></li>
+            <li>LDO Regulator <span class="text-highlight">DK P/N:296-12154-2-ND </span></li>
+            <li>CRYSTAL 32.7680KHZ <span class="text-highlight">DK P/N:631-1002-1-ND</span></li>
+            <li>CRYSTAL 8.0000MHZ <span class="text-highlight">DK P/N:535-9720-1-ND</span></li>
+            <li>MOSFET P-CH 20V 2.7A <span class="text-highlight">DK P/N:SI1469DH-T1-E3CT-ND</span></li>
+            </ul>
             
-            </div>
+            <h2 class="list-heading post-text">General Working </h2>
+            
+            <p class="post-text post-paragraph">This is a very simple embedded hardware which includes a microcontroller, IMU sensor, RGB LED grid, and some power supply components.</p>
+            
+            <p class="post-text post-paragraph">MCU that I am using is definitely an overkill. But the plan is that, I am learning to develop drivers for the peripherals, I might as well select a microcontroller with a variety of peripherals which I could use for future projects.</p>
+            
+            <p class="post-text post-paragraph">Datasheet for STM32L452CEU says the following: -</p> 
+            
+            <ul class="post-text post-list">
+            
+                <li>Ultra low power consumption modes,</li>
+                <li>Up to 80MHZ clock (with option of External Crystal),</li>
+                <li>Up to 512KB Flash and 160KB SRAM,</li>
+                <li>RTC clock for time keeping,</li>
+                <li>Very high-speed ADC’s (up to 5MSps),</li>
+                <li>USB 2.0, SPI, I2C, CAN, UART and more,</li>
+                <li>Capacitive touch channels and many many more features.</li>
+                
+            </ul>
+            
+            <p class="post-text post-paragraph">LED Grid is driven with SPI Bus at 500Khz. Which means that very high refresh rate could be achieved if needed. Of course, it will depend on the number of the LED’s driven. I will do an article on how to use these LED’s using SPI in the future, also explaining some challenges I had to face working with these LED’s.</p>
+                
+            
+            <p class="post-text post-paragraph">Time keeping is done using RTC peripheral in the MCU, therefor no RTC IC was needed for it. The RTC peripheral is provided with an external Crystal of 32.7680KHZ   for high accuracy in case the time is not updated for too long.</p>
+            
+            <p class="post-text post-paragraph">I have added an 8MHz crystal for the main clock, but it is not necessary for the operation of the watch. MCU can run on its internal RC clock.</p>
+            
+            <p class="post-text post-paragraph">Power scheme is as following:- Female Micro USB connector is used to plug the cable in to charge the battery through an Li-Ion cell charge controller IC “MCP73831T”, which takes care of all the things like amount of charging current, charge voltage and much more. It also provides Charge status of the battery. Output of this IC is connected to Battery.Battery then provide power to the LDO regulator giving output of 3.0V to the MCU, IMU etc. LED’s are directly power by the battery.</p>
+            
+             <p class="post-text post-paragraph">I have added two push buttons for interacting with the watch.</p>
+            
+             <p class="post-text post-paragraph">Watch has also got an IMU with accelerometer, Gyroscope, magnetometer in a single package. It was added for watch to turn ON when wrist is raised and to count the steps (both of these functionalities haven’t been added in the software yet.</p>
+            
+            <p class="post-text post-paragraph">Every LED consumes a significant amount of current even when they are off. So a P-channel MOSFET is added between Battery “+” and the VCC of the LED’s so that the LEDS are completely shut down when required. P-channel MOSFET is controlled by another N-channel MOSFET. Surprisingly, these LED’s can draw significant amount of current through CLK and DATA pins as well when not powered through VCC. Therefor resistors were added between CLOCK and MOSI of MCU and the corresponding pins on LED grid.</p>
+            
+            <p class="post-text post-paragraph">MCU on the watch can go to sleep mode when ever the watch is needed to be ON. This will help conserve battery power. This is not implemented in the software yet. (I will talk about the power consumption of the Watch in an another article).</p>
+
+            <p class="post-text post-paragraph">There is a lot more to cover in this project, which I will cover in subsequent posts.</p>
+
+            
+            <h2 class="list-heading post-text">RGB LED light show</h2>
+             <img class="post-images small-post-images"   src="resourses/img/red-led.jpg" alt="red-led">
+             <img class="post-images small-post-images"   src="resourses/img/red-blue.jpg" alt="red-led">
+             <img class="post-images small-post-images"   src="resourses/img/purple-led.jpg" alt="red-led">
+             <img class="post-images small-post-images"   src="resourses/img/red-green.jpg" alt="red-led">
+            
+            <h2 class="list-heading post-text">Firmware</h2>
+            <p class="post-text post-paragraph">I am writing the firmware using lite version of Kiel uVision 5 which is free but with a limit of 32KB of code and data. It is an easy to use and professional IDE that I personally like mostly because this is what I was introduced to me in the college.</p>
+            
+            <p class="post-text post-paragraph">So far, I have written a very basic structure of the code, enough to run every different part of the hardware. I am actively writing code and will keep on updating the repository on GitHub. Please check back at this blog for updates.</p>
+            
+            
+            <h2 class="list-heading post-text">RGB LED's in Action</h2>
+
+            
+            
+            
+            <iframe  class="demo-video" width="560" height="315" src="https://www.youtube.com/embed/YPL_VBUi4_0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            
+            <h2 class="list-heading post-text">Schematics and PCB layout</h2>
+            
+            <p class="post-text post-paragraph">The schematic and PCB files can be found on my <a href="https://github.com/gurpreetsinghmukker?tab=repositories" target="_blank" class="post-links links">github account</a></p>
+            
+            <img class="post-images large-post-images"   src="resourses/img/schematic.jpg" alt="schematic-1">
+            
+            <img class="post-images large-post-images" src="resourses/img/schematic-2.jpg" alt="schematic-2">
+            
+            <img class="medium-post-images" src="resourses/img/pcb-top.jpg" alt="pcb-cature">
+            
+            <img class="medium-post-images" src="resourses/img/pcb-bottom.jpg" alt="pcb-caputure-3d">
+            
+                
+        </div>
+        
+        
                     
             <div class="img-section">
 
             </div>
-        </div>
     </body>
     
 </html>
+
+<!–- 
+
+
+-–>
